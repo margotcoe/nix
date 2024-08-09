@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 let
   myAliases = {
-    la = "ls -la";
+    la = "eza -la";
+    ls = "eza";
     dotdot = "cd ~/.dotfiles";
   };
 in {

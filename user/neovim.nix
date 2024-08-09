@@ -3,7 +3,7 @@
 let
   fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
     pname = "${lib.strings.sanitizeDerivationName repo}";
-    version = ref;
+    version = "1.0";  # Add a version string or commit hash here
     src = builtins.fetchGit {
       url = "https://github.com/${repo}.git";
       ref = ref;
@@ -23,7 +23,7 @@ in
       plenary-nvim
       gruvbox-material
       mini-nvim
-      (fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
+      (fromGitHub "main" "elihunter173/dirbuf.nvim")  # Replace "main" with a specific branch or commit hash if needed
     ];
   };
 }
