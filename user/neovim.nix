@@ -12,11 +12,6 @@ let
 in
 
 {
-  home.username = "test";
-  home.homeDirectory = "/home/test";
-  home.stateVersion = "22.11";
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
   programs.neovim = {
     enable = true;
     defaultEditor = true;
