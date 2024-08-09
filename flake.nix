@@ -15,7 +15,7 @@
        pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
-      hollyOS = lib.nixosSystem {
+      hallelujah = lib.nixosSystem {
 	inherit system;
 	modules = [ ./configuration.nix ];
 	};
