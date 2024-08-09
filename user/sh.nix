@@ -29,4 +29,4 @@ in {
 
   programs.nix-index.enableZshIntegration = true;
 
-}
+m
