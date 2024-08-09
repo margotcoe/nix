@@ -11,20 +11,12 @@ in {
     enableCompletion = true;
     shellAliases = myAliases;
     initExtra = ''
-      autoload -Uz vcs_info
-
-      # Define vcs_info format for git
-      zstyle ':vcs_info:git:*' formats '%F{blue}[%b]%f'
-
-      # Update prompt with vcs_info information
-      precmd() {
-        vcs_info
-        PROMPT="◉ %F{pink}%n%f@%F{cyan}%m%f:%F{magenta}%~%f ${vcs_info_msg_0_} %F{lightgreen}→%f "
-      }
-
-      RPROMPT="%F{lightyellow}%D{%H:%M:%S}%f"
+      PROMPT=" ◉ %U%F{pink}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
+       %F{green}→%f "
+      RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
       [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
 
+      # Load zsh-autosuggestions
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     '';
   };
@@ -32,7 +24,7 @@ in {
   home.packages = with pkgs; [
     bottom
     tree
-    zsh-autosuggestions
+    zsh-autosuggestions 
   ];
 
   programs.nix-index.enableZshIntegration = true;
