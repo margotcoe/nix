@@ -25,7 +25,14 @@ in {
     bottom
     tree
     zsh-autosuggestions 
+    eza
   ];
 
   programs.nix-index.enableZshIntegration = true;
+  
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    git = true;
 }
