@@ -3,24 +3,10 @@
 {
   home.username = "margot";
   home.homeDirectory = "/home/margot";
-  home.stateVersion = "24.05"; 
+  home.stateVersion = "24.05";
   programs.home-manager.enable = true;
   programs.git.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      nvim-treesitter.withAllGrammars
-      plenary-nvim
-      gruvbox-material
-      mini-nvim
-    ];
-  };
-  editorconfig.enable = true; 
+  editorconfig.enable = true;
 
 
 
@@ -28,8 +14,9 @@
 
 
 
-  imports = [ 
+  imports = [
       user/sh.nix
+      user/neovim.nix
     ];
 
 
