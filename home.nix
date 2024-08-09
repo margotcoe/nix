@@ -1,12 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "margot";
   home.homeDirectory = "/home/margot";
+  home.stateVersion = "24.05"; 
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
+  programs.git.enable = true;
+  
 
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+
+
+
+
+
 
   imports = [ 
       user/sh.nix
@@ -66,15 +73,4 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
-#  programs.zsh = {
-#    enable = true;
-#    shellAliases = {
-# 	 la = "ls -la";
-# 	 ll = "ls -l";
- #   };
- # };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
