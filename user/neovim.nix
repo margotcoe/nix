@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 let
   fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
@@ -10,7 +10,6 @@ let
     };
   };
 in
-
 {
   programs.neovim = {
     enable = true;
