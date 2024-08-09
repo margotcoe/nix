@@ -40,7 +40,7 @@ in {
     extraOptions = 
       [
       "--group-directories-first"
-      
+      "--header" 
       ];
    };
 }
