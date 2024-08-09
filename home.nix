@@ -8,9 +8,8 @@
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  imports =
-    [ 
-      ./user/sh.nix
+  imports = [ 
+      user/sh.nix
     ];
 
 
