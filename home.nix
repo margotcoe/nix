@@ -8,6 +8,13 @@
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  imports =
+    [ 
+      ./user/sh.nix
+    ];
+
+
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -61,12 +68,12 @@
     # EDITOR = "emacs";
   };
 
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
- 	 la = "ls -la";
- 	 ll = "ls -l";
-    };
+#  programs.zsh = {
+#    enable = true;
+#    shellAliases = {
+# 	 la = "ls -la";
+# 	 ll = "ls -l";
+ #   };
   };
 
   # Let Home Manager install and manage itself.
