@@ -41,6 +41,6 @@ in {
       [
       "--group-directories-first"
       
-      ]
+      ];
    };
 }
