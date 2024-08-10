@@ -4,9 +4,11 @@ let
   fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
     pname = "${lib.strings.sanitizeDerivationName repo}";
     version = "1.0";  # Add a version string or commit hash here
-    src = builtins.fetchGit {
-      url = "https://github.com/${repo}.git";
-      ref = ref;
+    src = pkgs.fetchFromGitHub {
+      owner = "sts10";
+      repo = "vim-pink-moon";
+      rev = "master";  # You can specify a commit hash or tag here if needed
+      sha256 = "1rfcqi43y9vk5cb8412q5zdjv8i74s9a0y7j8qv262p8c4xnzqsj";  # Replace with your generated hash
     };
   };
 in
@@ -18,12 +20,13 @@ in
     vimAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
+      editorconfig-vim
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       plenary-nvim
       gruvbox-material
       mini-nvim
-      (fromGitHub "main" "elihunter173/dirbuf.nvim")  # Replace "main" with a specific branch or commit hash if needed
+     (fromGitHub "main" "sts10/vim-pink-moon")
     ];
   };
 }
