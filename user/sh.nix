@@ -4,6 +4,7 @@ let
     la = "eza -la";
     ls = "eza";
     dotdot = "cd ~/.dotfiles";
+    tree = "eza -T";
   };
 in {
   programs.zsh = {
