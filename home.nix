@@ -32,6 +32,7 @@
       max_line_width = 78;
       indent_style = "space";
       indent_size = 2;
+      };
     };
   };
 
