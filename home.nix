@@ -9,7 +9,7 @@
 
   imports = [
     ./user/sh.nix
-   # ./user/neovim.nix
+    # ./user/neovim.nix
   ];
 
   home.packages = [
@@ -24,13 +24,14 @@
   editorconfig = {
     enable = true;
     settings = {
-	charset = "utf-8";
-	end_of_line = "lf";
-	traim_trailing_whitespace = true;
-	insert_final_newline = true;
-	max_line_width = 78;
-	indent_style = "space";
-	indent_size = 2;
+     "*" = { 
+      charset = "utf-8";
+      end_of_line = "lf";
+      traim_trailing_whitespace = true;
+      insert_final_newline = true;
+      max_line_width = 78;
+      indent_style = "space";
+      indent_size = 2;
     };
   };
 
