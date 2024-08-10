@@ -6,7 +6,6 @@
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
   programs.git.enable = true;
-  editorconfig.enable = true;
 
   imports = [
     ./user/sh.nix
