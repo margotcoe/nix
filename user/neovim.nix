@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
 
+
+
 let
   fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
     pname = "${lib.strings.sanitizeDerivationName repo}";
@@ -26,7 +28,7 @@ in
       plenary-nvim
       gruvbox-material
       mini-nvim
-     (fromGitHub "main" "sts10/vim-pink-moon")
+    # (fromGitHub "main" "sts10/vim-pink-moon")
     ];
   };
 }
