@@ -24,7 +24,7 @@
   editorconfig = {
     enable = true;
     settings = {
-     "*" = { 
+     "*" = {
       charset = "utf-8";
       end_of_line = "lf";
       trim_trailing_whitespace = true;
