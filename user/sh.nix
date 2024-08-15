@@ -5,7 +5,6 @@
     enable = true;
     autocd = true;
     dotDir = ".config/zsh";
-    enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {
       sl = "exa";
@@ -25,7 +24,7 @@
       AGKOZAK_PROMPT_CHAR=( ❯ ❯ ❮ )
       eval $(thefuck --alias)
       autopair-init
-                              '';
+    '';
 
     plugins = with pkgs; [
       {
@@ -78,17 +77,27 @@
         };
         file = "autopair.zsh";
       }
+      {
+        name = "zsh-autosuggestions";
+        src = fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.7.0";
+          sha256 = "0l6n2yg3zv6jxf4imq3gfbzi9md8m3n6nzz79n3n7yds9w9gddm7";
+        };
+        file = "zsh-autosuggestions.zsh";
+      }
     ];
   };
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+ # programs.fzf = {
+ #   enable = true;
+ #   enableZshIntegration = true;
+ # };
 
   # Scripts
-  home.file.".config/zsh/scripts".source = ./files/scripts;
-  home.file.".config/zsh/scripts".recursive = true;
+#  home.file.".config/zsh/scripts".source = ./files/scripts;
+#  home.file.".config/zsh/scripts".recursive = true;
 
   programs.eza = {
     enable = true;
