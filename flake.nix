@@ -16,12 +16,15 @@
     in {
     nixosConfigurations = {
       hallelujah = lib.nixosSystem {
-	inherit system;
-	modules = [
-    ./configuration.nix
-    ./server.nix
-   ];
-	};
+     	  inherit system;
+	      modules = [
+          ./configuration.nix
+          ./server.nix
+        ];
+        configuration = {
+          media_server.enable = true;
+        };
+    	};
      };
      homeConfigurations = {
       margot = home-manager.lib.homeManagerConfiguration {
