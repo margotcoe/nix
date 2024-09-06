@@ -5,7 +5,7 @@ let
 in
 {
   options = {
-    media_server.enable = lib.mkEnableOption "Serve and store media from this machine";
+    server.enable = lib.mkEnableOption "Serve and store media from this machine";
   };
 
   config = lib.mkIf config.media_server.enable {
