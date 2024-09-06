@@ -2,7 +2,6 @@
 let
   mediaDir = "/mnt/docker_storage";  # Matches your existing file structure
   mediaGroup = "media";
-#  sabnzbdPort = 8060;
 in
 {
   options = {
@@ -29,21 +28,15 @@ in
     services.sabnzbd = {
       enable = true;
       package = pkgs.sabnzbd;
-  #    settings = {
-  #      download_dir = "${mediaDir}/downloads";
-  #      complete_dir = "${mediaDir}/complete";
-  #      incomplete_dir = "${mediaDir}/downloads/incomplete";
-  #    };
       configFile = "${mediaDir}/config/sabnzbd/sabnzbd.ini";
-  #    ports = [ sabnzbdPort ]; # 8060:8080
     };
 
     # Sonarr configuration
     services.sonarr = {
       enable = true;
       dataDir = "${mediaDir}/config/sonarr";
- #     mediaDirs = [ "${mediaDir}/complete/tv" ];
-  #    downloadDirs = [ "${mediaDir}/downloads" ];
+      # mediaDirs = [ "${mediaDir}/complete/tv" ]; # Uncomment if you need specific media directories
+      # downloadDirs = [ "${mediaDir}/downloads" ]; # Uncomment if you need specific download directories
       openFirewall = true;
       group = mediaGroup;
     };
@@ -52,8 +45,8 @@ in
     services.radarr = {
       enable = true;
       dataDir = "${mediaDir}/config/radarr";
-  #    mediaDirs = [ "${mediaDir}/complete/movies" ];
-  #    downloadDirs = [ "${mediaDir}/downloads" ];
+      # mediaDirs = [ "${mediaDir}/complete/movies" ]; # Uncomment if you need specific media directories
+      # downloadDirs = [ "${mediaDir}/downloads" ]; # Uncomment if you need specific download directories
       openFirewall = true;
       group = mediaGroup;
     };
@@ -62,23 +55,23 @@ in
     services.plex = {
       enable = true;
       dataDir = "${mediaDir}/config/plex/db";
-     # mediaDirs = [ "${mediaDir}/complete" ]; # For both TV and movies
-   #   transcodeDir = "/dev/shm"; # RAM-based transcoding
+      # mediaDirs = [ "${mediaDir}/complete" ]; # For both TV and movies, uncomment if needed
+      # transcodeDir = "/dev/shm"; # RAM-based transcoding, uncomment if needed
       openFirewall = true;
       group = mediaGroup;
     };
 
     # Bazarr configuration
-   # services.bazarr = {
-   #   enable = true;
-   #   dataDir = "${mediaDir}/config/bazarr";
-   #   mediaDirs = [
-   #     "${mediaDir}/complete/movies"
-   #     "${mediaDir}/complete/tv"
-   #   ];
-   #   openFirewall = true;
-   #   group = mediaGroup;
-   # };
+    services.bazarr = {
+      enable = true;
+      dataDir = "${mediaDir}/config/bazarr";
+      mediaDirs = [
+        "${mediaDir}/complete/movies"
+        "${mediaDir}/complete/tv"
+      ];
+      openFirewall = true;
+      group = mediaGroup;
+    };
 
     # Set the environment system packages (optional)
     environment.systemPackages = [
@@ -86,7 +79,7 @@ in
       pkgs.plex
       pkgs.sonarr
       pkgs.radarr
-    #  pkgs.bazarr
+      pkgs.bazarr
     ];
   };
 }
