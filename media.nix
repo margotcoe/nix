@@ -47,5 +47,15 @@
       group = "media"; # Sets the group for SABnzbd
       configFile = "/mnt/docker_storage/config/sabnzbd/sabnzbd.ini"; # Path to the configuration file
     };
+    services.plex = {
+      enable = true;
+      user = "plex";
+      package = pkgs.plex;
+      group = "media";
+      opneFirewall = true;
+      dataDir = "/mnt/dockerstorage/config/plex";
+    };
+
+
   };
 }
