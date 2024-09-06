@@ -9,7 +9,12 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 #      ./user/sh.nix
+      ./server.nix
     ];
+
+
+  media_server.enable = true;
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -99,7 +104,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  
+
 
 
   # This value determines the NixOS release from which the default
