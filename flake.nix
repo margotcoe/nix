@@ -20,10 +20,9 @@
             ./configuration.nix
             ./media.nix  # Include your media module here
           ];
-          # This should be removed as it's causing the error
-          # configuration = {
-          #   media_server.enable = true;  # Enable media server services
-          # };
+           configuration = {
+             media_server.enable = true;  # Enable media server services
+           };
         };
       };
       homeConfigurations = {
