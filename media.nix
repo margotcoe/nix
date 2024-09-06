@@ -52,8 +52,8 @@
       user = "plex";
       package = pkgs.plex;
       group = "media";
-      opneFirewall = true;
-      dataDir = "/mnt/dockerstorage/config/plex";
+      openFirewall = true;
+      dataDir = "/mnt/docker_storage/config/plex";
     };
 
 
