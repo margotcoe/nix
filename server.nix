@@ -28,7 +28,7 @@ in
     services.sabnzbd = {
       enable = true;
       package = pkgs.sabnzbd;
-      configFile = "${mediaDir}/config/sabnzbd/sabnzbd.ini";
+   #   configFile = "${mediaDir}/config/sabnzbd/sabnzbd.ini";
     };
 
     # Sonarr configuration
@@ -64,11 +64,11 @@ in
     # Bazarr configuration
     services.bazarr = {
       enable = true;
-      dataDir = "${mediaDir}/config/bazarr";
-      mediaDirs = [
-        "${mediaDir}/complete/movies"
-        "${mediaDir}/complete/tv"
-      ];
+    #  dataDir = "${mediaDir}/config/bazarr";
+    #  mediaDirs = [
+    #    "${mediaDir}/complete/movies"
+    #    "${mediaDir}/complete/tv"
+    #  ];
       openFirewall = true;
       group = mediaGroup;
     };
