@@ -79,7 +79,7 @@
     wget
     git
     zsh
-
+    eza
 
   ];
 
