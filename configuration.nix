@@ -8,19 +8,19 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-#      ./user/sh.nix
-      ./media.nix
+      ./user/sh.nix
+#      ./media.nix
     ];
 
 
-  media_server.enable = true;
+#  media_server.enable = true;
 
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "hallelujah"; # Define your hostname.
+  networking.hostName = "Media"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

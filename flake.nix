@@ -14,11 +14,11 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       nixosConfigurations = {
-        hallelujah = lib.nixosSystem {
+        Media = lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
-            ./media.nix  # Include your media module here
+     #       ./media.nix  # Include your media module here
           ];
           # configuration = {
           #   media_server.enable = true;  # Enable media server services
