@@ -11,7 +11,7 @@
 
   imports = [
     ./user/sh.nix
-    ./user/neovim.nix
+#    ./user/neovim.nix
   ];
 
   home.packages = [
