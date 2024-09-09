@@ -20,11 +20,13 @@
           specialArgs = { inherit pkgs; };
 #          configuration = { media_server.enable = true; };
         };
+        config.allowUnfree = true;
       };
       homeConfigurations = {
         margot = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
+
         };
       };
     };
