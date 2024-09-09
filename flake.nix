@@ -9,25 +9,24 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: let
     system = "x86_64-linux"; # Define your system type
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = nixpkgs.legacyPackages.${system};  
     lib = nixpkgs.lib; # Add this line to import lib
   in rec {
     nixosConfigurations = {
       Media = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./configuration.nix ./media.nix ];
-
-        # Integrate the settings here directly
-        configuration = {
-	  media_server.enable = true;
-          nix.registry.nixpkgs.flake = nixpkgs;
-          nix.channel.enable = false;
-          environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
-          nix.settings.nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
-        };
+        modules = [ 
+          ./configuration.nix
+          ./media.nix
+          ({ pkgs, lib, ... }: {
+            # Add your options here
+            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.channel.enable = false;
+            environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
+            nix.settings.nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
+          })
+        ];
       };
-    };
-
     homeConfigurations = {
       margot = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -35,4 +34,5 @@
       };
     };
   };
+ };
 }

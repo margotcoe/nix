@@ -6,7 +6,7 @@
 #    ./media.nix
   ];
 
-  environment.pathsToLink = [ "/share/zsh" ];
+#  environment.pathsToLink = [ "/share/zsh" ];
 #  media_server.enable = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -82,7 +82,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  nix.settings.nix-path = ["nixpkgs=${pkgs.path}"];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 #  nix.channel.enable = false;
