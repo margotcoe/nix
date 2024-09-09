@@ -18,13 +18,12 @@
           modules = [
             ./configuration.nix
             ./media.nix
-
-            {
-             media_server.enable = true;
-            }
           ];
           specialArgs = {
             inherit pkgs;
+          };
+          configuration = {
+            media_server.enable = true;
           };
         };
       };
