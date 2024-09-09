@@ -16,7 +16,7 @@
         inherit system;
         modules = [ ./configuration.nix ./media.nix ];
         specialArgs = { inherit pkgs; };
-  #      configuration = { media_server.enable = true; };
+#        configuration = { media_server.enable = true; };
       };
     };
 
