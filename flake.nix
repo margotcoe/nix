@@ -20,9 +20,7 @@
             ./media.nix
 
             {
-              # Add your configuration options here
-           #   media_server.enable = true;
-           #   nixpkgs.config.allowUnfree = true;
+             media_server.enable = true;
             }
           ];
           specialArgs = {
