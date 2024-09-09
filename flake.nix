@@ -15,16 +15,9 @@
       nixosConfigurations = {
         Media = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [
-            ./configuration.nix
-            ./media.nix
-          ];
-          specialArgs = {
-            inherit pkgs;
-          };
-          configuration = {
-            media_server.enable = true;
-          };
+          modules = [ ./configuration.nix ./media.nix ];
+          specialArgs = { inherit pkgs; };
+  #        configuration = { media_server.enable = true; };
         };
       };
       homeConfigurations = {

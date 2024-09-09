@@ -1,16 +1,13 @@
-
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-#      ./media.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./media.nix
+  ];
 
- environment.pathsToLink = [ "/share/zsh" ];
-# media_server.enable = true;
-
+  environment.pathsToLink = [ "/share/zsh" ];
+  media_server.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -47,7 +44,7 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
-  # Variant = "";
+    # Variant = "";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -55,7 +52,7 @@
     isNormalUser = true;
     description = "margot";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   # default user shell
@@ -79,8 +76,8 @@
 
   ];
 
- # Some programs need SUID wrappers, can be configured further or are
- # started in user sessions.
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
@@ -99,9 +96,6 @@
   # networking.firewall.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
