@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./media.nix
+    #  ./media.nix
     ];
 
  environment.pathsToLink = [ "/share/zsh" ];

@@ -21,6 +21,7 @@
             {
               # Add your configuration options here
               media_server.enable = true;
+              nixpkgs.config.allowUnfree = true;
             }
           ];
           specialArgs = {
