@@ -7,9 +7,11 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
+
+
   imports = [
     ./user/sh.nix
- #   ./user/neovim.nix
+    ./user/neovim.nix
   ];
 
   home.packages = [
