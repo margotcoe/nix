@@ -18,11 +18,11 @@
           inherit system;
           modules = [
             ./configuration.nix
-     #       ./media.nix  # Include your media module here
+            ./media.nix
           ];
-          # configuration = {
-          #   media_server.enable = true;  # Enable media server services
-          # };
+           configuration = {
+             media_server.enable = true;
+           };
         };
       };
       homeConfigurations = {

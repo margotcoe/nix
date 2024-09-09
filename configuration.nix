@@ -8,11 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-#     ./user/sh.nix
-#      ./media.nix
+      ./media.nix
     ];
 
-
+ environment.pathsToLink = [ "/share/zsh" ];
 #  media_server.enable = true;
 
 
