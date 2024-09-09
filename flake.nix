@@ -9,20 +9,23 @@
 
   outputs = { self, nixpkgs, home-manager, ... }:
     let
-      lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       nixosConfigurations = {
-        Media = lib.nixosSystem {
+        Media = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
             ./media.nix
+            {
+              # Add your configuration options here
+              media_server.enable = true;
+            }
           ];
-           configuration = {
-             media_server.enable = true;
-           };
+          specialArgs = {
+            inherit pkgs;
+          };
         };
       };
       homeConfigurations = {
