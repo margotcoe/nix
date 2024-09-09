@@ -8,11 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    #  ./media.nix
+      ./media.nix
     ];
 
  environment.pathsToLink = [ "/share/zsh" ];
-#  media_server.enable = true;
+ media_server.enable = true;
 
 
   # Bootloader.
